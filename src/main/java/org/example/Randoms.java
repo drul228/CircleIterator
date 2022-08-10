@@ -1,8 +1,6 @@
 package org.example;
 
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Random;
 
 public class Randoms implements Iterable<Integer> {
@@ -13,7 +11,10 @@ public class Randoms implements Iterable<Integer> {
     public Randoms(int min, int max) {
         this.min = min;
         this.max = max;
-        randomInt = random.nextInt(min, max + 1);
+
+    }
+    public Integer makeRandom(){
+        return randomInt = random.nextInt(this.min,this.max + 1);
     }
 
     @Override
@@ -27,8 +28,7 @@ public class Randoms implements Iterable<Integer> {
 
             @Override
             public Integer next() {
-                var i = new Randoms(min,max);
-                return i.randomInt;
+                return makeRandom();
             }
         };
     }
